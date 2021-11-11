@@ -1,0 +1,41 @@
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 15px 0;
+   .hotline {
+    padding: 4px 20px 2px 21px;
+    border-radius: 15px;
+    border: solid 0.5px #00be00;
+    display: flex;
+    flex-direction: column;
+    .tile-hotline{
+      width: 100%;
+      text-align: right;
+      font-size: 15px;
+      color: #0b0b0b;
+    }
+    .phone-number{
+      font-size: 21px;
+      font-weight: bold;
+      color: #00be00;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    img {
+      max-width: 100px;
+      width: 100%;
+    }
+    .hotline {
+      .tile-hotline{
+        font-size: 13px;
+      }
+      .phone-number{
+        font-size: 17px;
+      }
+    }
+  }
+}

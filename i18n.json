@@ -1,0 +1,9 @@
+{
+  "locales": ["vi", "en"],
+  "defaultLocale": "vi",
+  "pages": {
+    "/": ["home"],
+    "rgx:^/dashboard": ["home"],
+    "/test": ["home"]
+  }
+}

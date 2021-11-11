@@ -1,0 +1,493 @@
+@font-face {
+  font-family: "NunitoSans-Regular";
+  src: url("../fonts/NunitoSans-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "NunitoSans-Medium";
+  src: url("../fonts/MavenPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "NunitoSans-SemiBold";
+  src: url("../fonts/NunitoSans-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "NunitoSans-Bold";
+  src: url("../fonts/NunitoSans-Bold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "NunitoSans-Light";
+  src: url("../fonts/NunitoSans-Light.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "SVNGilroy-Bold";
+  src: url("../fonts/SVN-GilroyBold.otf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "SVNGilroy-Regular";
+  src: url("../fonts/SVN-GilroyRegular.otf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+* {
+  font-family: "NunitoSans-Regular";
+  font-size: 16px; }
+
+html {
+  scroll-behavior: smooth; }
+
+body {
+  background-color: #f0f0f0 !important; }
+
+.waiting-spinner {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #00000038;
+  top: 0;
+  z-index: 10000;
+  margin: 0;
+  left: 0;
+  display: flex; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 15px 0; }
+  @media screen and (max-width: 768px) {
+    .header > img {
+      max-width: 20%;
+      width: 100%; } }
+  @media screen and (max-width: 425px) {
+    .header > img {
+      max-width: 100px;
+      width: 100%; } }
+  .header > .hotline {
+    padding: 4px 20px 2px 21px;
+    border-radius: 15px;
+    border: solid 0.5px #00be00;
+    display: flex;
+    flex-direction: column; }
+    .header > .hotline .tile-hotline {
+      width: 100%;
+      text-align: right;
+      font-size: 15px;
+      color: #0b0b0b; }
+    .header > .hotline .phone-number {
+      font-size: 21px;
+      font-weight: bold;
+      color: #00be00; }
+
+.footer {
+  height: 80px;
+  padding: 17px 0;
+  background-color: #dfe1e3;
+  margin-top: 60px; }
+  .footer .wrap-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1270px;
+    margin: auto;
+    padding: 0 35px; }
+    .footer .wrap-footer .title-name-payment {
+      font-size: 18px;
+      font-weight: bold;
+      color: #717780; }
+    .footer .wrap-footer .title-name-license {
+      margin-top: 5px;
+      font-size: 15px;
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1.13;
+      color: #737373; }
+
+.wrap-container {
+  position: relative; }
+  .wrap-container .bg-green {
+    position: absolute;
+    top: 0;
+    height: 400px;
+    width: 100%;
+    background-image: url("/assets/img/bg.png"); }
+  .wrap-container .content-form {
+    max-width: 1200px;
+    width: 100%;
+    padding: 45px 0 46px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: relative; }
+    .wrap-container .content-form .title-form {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 30px; }
+    .wrap-container .content-form .form-payment {
+      padding: 25px 31px 45px 31px;
+      border-radius: 15px;
+      background-color: #ffffff; }
+      .wrap-container .content-form .form-payment .title-content {
+        font-size: 21px;
+        font-weight: bold;
+        color: #000050;
+        margin: 3px 0 15px 0; }
+      .wrap-container .content-form .form-payment .form-group {
+        margin-bottom: 20px !important; }
+        .wrap-container .content-form .form-payment .form-group .custom-form-group-payment {
+          border-radius: 13px !important;
+          background-color: #f2f6f7 !important;
+          padding: 10px 15px;
+          height: 80px;
+          border: solid 1px transparent;
+          transition: all 0.3s; }
+          .wrap-container .content-form .form-payment .form-group .custom-form-group-payment:focus-within {
+            border: solid 1px #00be00; }
+          .wrap-container .content-form .form-payment .form-group .custom-form-group-payment .info-payment {
+            height: 35px;
+            font-size: 26px;
+            font-weight: bold;
+            line-height: 1.29;
+            color: #000000;
+            margin-bottom: 13px; }
+            .wrap-container .content-form .form-payment .form-group .custom-form-group-payment .info-payment::placeholder {
+              font-size: 26px;
+              font-weight: normal;
+              line-height: 1.29;
+              color: #a5aeb8; }
+            .wrap-container .content-form .form-payment .form-group .custom-form-group-payment .info-payment::-ms-input-placeholder {
+              font-size: 26px;
+              font-weight: normal;
+              line-height: 1.29;
+              color: #a5aeb8; }
+            .wrap-container .content-form .form-payment .form-group .custom-form-group-payment .info-payment::-ms-input-placeholder {
+              font-size: 26px;
+              font-weight: normal;
+              line-height: 1.29;
+              color: #a5aeb8; }
+        .wrap-container .content-form .form-payment .form-group .custom-form-group-user {
+          border-radius: 13px !important;
+          background-color: #f2f6f7 !important;
+          padding: 2px 15px;
+          height: 56px;
+          border: solid 1px transparent;
+          transition: all 0.3s; }
+          .wrap-container .content-form .form-payment .form-group .custom-form-group-user:focus-within {
+            border: solid 1px #00be00; }
+          .wrap-container .content-form .form-payment .form-group .custom-form-group-user .label-error {
+            margin: 30px 0 0 20px; }
+          .wrap-container .content-form .form-payment .form-group .custom-form-group-user .info-user {
+            height: 25px;
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 1.2;
+            color: #000000; }
+            .wrap-container .content-form .form-payment .form-group .custom-form-group-user .info-user::placeholder {
+              font-size: 17px;
+              font-weight: normal;
+              line-height: 1.2;
+              color: #a5aeb8; }
+            .wrap-container .content-form .form-payment .form-group .custom-form-group-user .info-user::-ms-input-placeholder {
+              font-size: 17px;
+              font-weight: normal;
+              line-height: 1.2;
+              color: #a5aeb8; }
+            .wrap-container .content-form .form-payment .form-group .custom-form-group-user .info-user::-ms-input-placeholder {
+              font-size: 17px;
+              font-weight: normal;
+              line-height: 1.2;
+              color: #a5aeb8; }
+          .wrap-container .content-form .form-payment .form-group .custom-form-group-user .label-card-holder {
+            font-size: 12px;
+            font-weight: normal;
+            color: #0b0b0b; }
+        .wrap-container .content-form .form-payment .form-group .form-label {
+          text-transform: uppercase;
+          font-size: 12px;
+          line-height: 1.2;
+          color: #a5aeb8;
+          margin: 0; }
+        .wrap-container .content-form .form-payment .form-group .form-control {
+          box-shadow: none !important;
+          border: none !important;
+          background-color: #f2f6f7;
+          padding: 0; }
+          .wrap-container .content-form .form-payment .form-group .form-control:focus {
+            box-shadow: none !important;
+            border: none !important; }
+          .wrap-container .content-form .form-payment .form-group .form-control:invalid {
+            background-image: none !important; }
+          .wrap-container .content-form .form-payment .form-group .form-control:valid {
+            background-image: none !important; }
+        .wrap-container .content-form .form-payment .form-group .re-select__control {
+          border-radius: 13px !important;
+          background-color: transparent !important;
+          padding: 0;
+          height: 30px;
+          width: 100%;
+          border: none;
+          position: absolute;
+          top: -10px; }
+          .wrap-container .content-form .form-payment .form-group .re-select__control svg {
+            width: 30px;
+            height: 25px;
+            color: #414141; }
+        .wrap-container .content-form .form-payment .form-group .re-select__control--is-focused {
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important; }
+        .wrap-container .content-form .form-payment .form-group .re-select__indicator-separator {
+          display: none; }
+        .wrap-container .content-form .form-payment .form-group .option-custom {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          width: 100%; }
+          .wrap-container .content-form .form-payment .form-group .option-custom .img-wrapper {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            border-radius: 5px;
+            overflow: hidden; }
+            .wrap-container .content-form .form-payment .form-group .option-custom .img-wrapper > img {
+              width: 100%; }
+          .wrap-container .content-form .form-payment .form-group .option-custom .name-payment-method {
+            font-size: 17px;
+            font-weight: bold;
+            color: #0b0b0b;
+            margin: 0 !important; }
+          @media screen and (max-width: 768px) {
+            .wrap-container .content-form .form-payment .form-group .option-custom > div > p:first-child {
+              font-size: 18px; } }
+          @media screen and (max-width: 500px) {
+            .wrap-container .content-form .form-payment .form-group .option-custom .img-wrapper {
+              width: 24px;
+              height: 24px; }
+            .wrap-container .content-form .form-payment .form-group .option-custom > div > p:first-child {
+              font-size: 16px; } }
+        .wrap-container .content-form .form-payment .form-group .re-select__value-container {
+          padding-left: 15px !important; }
+        .wrap-container .content-form .form-payment .form-group .re-select__menu {
+          border-radius: 15px;
+          padding: 12px 0;
+          margin-top: 40px; }
+          .wrap-container .content-form .form-payment .form-group .re-select__menu .re-select__menu-list {
+            padding: 0 20px;
+            max-height: 250px !important; }
+            .wrap-container .content-form .form-payment .form-group .re-select__menu .re-select__menu-list .re-select__option {
+              padding: 0; }
+              .wrap-container .content-form .form-payment .form-group .re-select__menu .re-select__menu-list .re-select__option:not(:last-child) {
+                border-bottom: 1px solid #cbcbcb; }
+              .wrap-container .content-form .form-payment .form-group .re-select__menu .re-select__menu-list .re-select__option--is-focused {
+                background-color: #0caa262d; }
+              .wrap-container .content-form .form-payment .form-group .re-select__menu .re-select__menu-list .re-select__option--is-selected {
+                background: #ffffff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center; }
+                .wrap-container .content-form .form-payment .form-group .re-select__menu .re-select__menu-list .re-select__option--is-selected::after {
+                  content: url("/assets/img/check.svg");
+                  display: inline-block; }
+        .wrap-container .content-form .form-payment .form-group .fee-service {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; }
+          .wrap-container .content-form .form-payment .form-group .fee-service .label-name-service {
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #647081; }
+          .wrap-container .content-form .form-payment .form-group .fee-service .fee-service {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.13;
+            color: #000000; }
+        .wrap-container .content-form .form-payment .form-group .box-method-pay {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; }
+          .wrap-container .content-form .form-payment .form-group .box-method-pay .label-method-pay {
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #647081; }
+          .wrap-container .content-form .form-payment .form-group .box-method-pay .method-pay {
+            display: flex;
+            justify-content: space-between; }
+        @media (max-width: 768px) {
+          .wrap-container .content-form .form-payment .form-group .fee-service {
+            margin-bottom: 10px;
+            display: block; }
+            .wrap-container .content-form .form-payment .form-group .fee-service .label-name-service {
+              display: inline;
+              margin-right: 10px; }
+            .wrap-container .content-form .form-payment .form-group .fee-service .fee-service {
+              display: inline; }
+          .wrap-container .content-form .form-payment .form-group .box-method-pay {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start; }
+            .wrap-container .content-form .form-payment .form-group .box-method-pay .label-method-pay {
+              margin-right: 40px; }
+            .wrap-container .content-form .form-payment .form-group .box-method-pay .label-user-buy {
+              margin-right: 20px; } }
+      .wrap-container .content-form .form-payment .btn:focus {
+        box-shadow: none !important; }
+      .wrap-container .content-form .form-payment .btn-init-payment {
+        max-width: 515px;
+        width: 100%;
+        margin-top: 25px;
+        padding: 14px 20px 10.6px 19px;
+        border-radius: 15px;
+        background-color: #0caa26;
+        font-size: 17px;
+        font-style: normal;
+        line-height: 1.2;
+        text-align: center;
+        color: #ffffff; }
+      .wrap-container .content-form .form-payment .btn-completed {
+        max-width: 400px;
+        width: 100%;
+        margin-top: 10px;
+        padding: 14px 20px 10.6px 19px;
+        border-radius: 15px;
+        background-color: #0caa26;
+        font-size: 17px;
+        font-style: normal;
+        line-height: 1.2;
+        text-align: center;
+        color: #ffffff; }
+      .wrap-container .content-form .form-payment .label-notify {
+        font-size: 14px;
+        font-weight: normal;
+        text-align: center;
+        color: #000000;
+        margin-top: 10px;
+        margin-bottom: 35px; }
+      .wrap-container .content-form .form-payment .see-more {
+        font-size: 14px;
+        font-weight: normal;
+        text-align: center;
+        color: #00a500;
+        margin-top: 35px;
+        margin-bottom: 150px;
+        cursor: pointer;
+        text-decoration: underline; }
+      .wrap-container .content-form .form-payment .note {
+        width: 580px;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: italic;
+        text-align: center;
+        color: #777777;
+        margin: 10px auto 20px auto; }
+      .wrap-container .content-form .form-payment .text-currency {
+        color: #00a500;
+        display: inline; }
+    .wrap-container .content-form .label-payment-success {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #181a41;
+      margin-top: 30px; }
+    .wrap-container .content-form .label-total-payment {
+      font-size: 40px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-align: center;
+      color: #00be00;
+      margin-top: 15px; }
+    .wrap-container .content-form .box-content-payment-success {
+      max-width: 790px;
+      width: 100%;
+      margin: 0 auto; }
+      .wrap-container .content-form .box-content-payment-success .box-info-payment {
+        padding: 20px 25px 13px 25px;
+        border-radius: 10px;
+        border: dashed  0.5px #cbcbcb;
+        margin-top: 20px; }
+        .wrap-container .content-form .box-content-payment-success .box-info-payment .item-info-payment {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px; }
+          .wrap-container .content-form .box-content-payment-success .box-info-payment .item-info-payment .item-label {
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #0b0b0b; }
+          .wrap-container .content-form .box-content-payment-success .box-info-payment .item-info-payment .item-content {
+            font-size: 16px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: right;
+            color: #0b0b0b; }
+          .wrap-container .content-form .box-content-payment-success .box-info-payment .item-info-payment .label-currency {
+            color: #00be00; }
+      .wrap-container .content-form .box-content-payment-success .box-info-user {
+        padding: 25px; }
+        .wrap-container .content-form .box-content-payment-success .box-info-user .label-type-user {
+          font-size: 18px;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: #000050;
+          margin-bottom: 10px; }
+        .wrap-container .content-form .box-content-payment-success .box-info-user .item-info-user {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px; }
+          .wrap-container .content-form .box-content-payment-success .box-info-user .item-info-user .item-label {
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #0b0b0b; }
+          .wrap-container .content-form .box-content-payment-success .box-info-user .item-info-user .item-content {
+            font-size: 16px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: right;
+            color: #0b0b0b; }
+      .wrap-container .content-form .box-content-payment-success .line-dashed {
+        margin-bottom: 10px;
+        width: 100%;
+        border-bottom: dashed 0.5px #cbcbcb; }

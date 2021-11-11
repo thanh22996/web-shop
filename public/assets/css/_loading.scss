@@ -1,0 +1,33 @@
+.waiting-spinner {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #00000038;
+  top: 0;
+  z-index: 10000;
+  margin: 0;
+  left: 0;
+  display: flex;
+}
+.spinner-3 {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:conic-gradient(#0000 10%,#25b09b);
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation:s3 1s infinite linear;
+}
+@keyframes s3 {to{transform: rotate(1turn)}}
+
+.wait-call-api{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #0caa26;
+  top: 0;
+  display: flex;
+  margin: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,67 @@
+.transaction-not-found{
+  height: 615px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.not-found-container{
+  border-top: solid 0.5px #c7c7c7;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .img-err{
+    margin-top: 60px;
+  }
+  .title-error{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #181a41;
+    margin-top: 70px;
+  }
+  .title-contact{
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    color: #000000;
+    margin-top: 10px;
+  }
+  .btn-back-home{
+    max-width: 400px;
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px 20px 10.6px 19px;
+    border-radius: 15px;
+    background-color: #0caa26;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 1.2;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+@media screen and (max-width: 768px) {
+  .not-found-container{
+    padding:10px;
+    .img-err{
+      margin-top: 30px;
+      max-width: 100px;
+      width: 100%;
+    }
+    .title-error{
+      font-size: 18px;
+      margin-top: 30px;
+    }
+    .title-contact{
+      font-size: 12px;
+    }
+    .btn-back-home{
+      font-size: 15px;
+      max-width: 400px;
+    }
+  }
+
+}
