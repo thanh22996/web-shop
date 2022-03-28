@@ -1,0 +1,31 @@
+.footer {
+  padding: 17px 0;
+  background-color: #ec2521;
+  margin-top: 40px;
+  color: #ffde9d;
+  .wrap-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1270px;
+    margin: auto;
+    padding: 0 35px;
+    .title {
+      font-weight: 700;
+    }
+    ul {
+      padding-left: 16px;
+      li {
+        list-style-position: outside;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    margin-top: 30px;
+    .wrap-footer {
+      padding: 0 5px;
+    }
+  }
+}

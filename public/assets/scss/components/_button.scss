@@ -1,0 +1,14 @@
+button.submit {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  height: 48px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #f32723;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

@@ -1,4 +1,8 @@
-export const SHOW_LOADING = "SHOW_LOADING";
-export const HIDE_LOADING = "HIDE_LOADING";
+export const SHOW_LOADING = 'SHOW_LOADING'
+export const HIDE_LOADING = 'HIDE_LOADING'
 
-export const GET_LIST_BANK = "GET_LIST_BANK";
+export const GET_LIST_BANK = 'GET_LIST_BANK'
+
+export const GET_LIST_PRODUCT = 'GET_LIST_PRODUCT'
+
+export const GET_LIST_CATEGORY = 'GET_LIST_CATEGORY'

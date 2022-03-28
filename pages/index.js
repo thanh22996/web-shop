@@ -1,18 +1,19 @@
-import { wrapper } from "../store";
-import { END } from "redux-saga";
-import { getListBank } from "../src/redux/actions";
-import Test from "../src/components/Test";
+import { wrapper } from '../store'
+import { END } from 'redux-saga'
+import { getListBank } from 'redux/actions'
+import Home from 'components/Home'
+import Main from 'layouts/main/MainLayout'
 
 export default function home() {
   return (
-    <div>
-      <Test />
-    </div>
-  );
+    <Main>
+      <Home />
+    </Main>
+  )
 }
 
 export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
-  console.log("aaaaaaabbbbbbbbbbccccccc");
+  console.log('aaaaaaabbbbbbbbbbccccccc')
   // store.dispatch(
   //   getListBank({}, (status, data) => {
   //     console.log("status: ", data);
@@ -29,4 +30,4 @@ export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
   // store.dispatch(END);
 
   // await store.sagaTask.toPromise();
-});
+})

@@ -1,35 +1,28 @@
-import { wrapper } from "../store";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Head from "next/head";
-import "../public/assets/css/style.scss";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-
+import { wrapper } from '../store'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Head from 'next/head'
+import '../public/assets/scss/styles.scss'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 function App({ Component, pageProps }) {
-  const router = useRouter();
+  const router = useRouter()
 
   useEffect(() => {
-    localStorage.setItem("lang", router.locale);
-  }, [router.locale]);
+    localStorage.setItem('lang', router.locale)
+  }, [router.locale])
   return (
-    <div className="root-next">
+    <div className='root-next'>
       <Head>
-        <title>Thanh toán đảm bảo</title>
-        <link href="/assets/fontawesome/css/all.css" rel="stylesheet" />
-        <link
-          rel="shortcut icon"
-          href="/assets/img/travelook-img/icon-link.png"
-          type="image/png"
-        />
+        <title>Yến vua</title>
       </Head>
       <div>
-
         <Component {...pageProps} />
       </div>
 
+      {/* <script src='https://use.fontawesome.com/103ab0ff19.js'></script> */}
     </div>
-  );
+  )
 }
 
-export default wrapper.withRedux(App);
+export default wrapper.withRedux(App)
