@@ -1,0 +1,41 @@
+.sidebar {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  height: 100vh;
+  width: 270px;
+  background-color: #fff;
+  border-right: #ffde9d solid 2px;
+  &__menu {
+    position: relative;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      place-content: flex-start;
+      padding: 1rem 3rem;
+      font-size: 16px;
+      font-weight: 500;
+      color: #f12622;
+      transition: color 0.3s ease-in-out;
+
+      &.active {
+        color: #ffde9d;
+        background-color: #f12622;
+      }
+
+      &__icon {
+        margin-right: 1rem;
+
+        i {
+          font-size: 1.75rem;
+        }
+      }
+    }
+  }
+}
+
+.content-admin {
+  padding-left: 300px;
+  background-color: #fff;
+}

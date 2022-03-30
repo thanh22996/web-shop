@@ -25,3 +25,34 @@ export const getListCategory = (payload, callback) => {
     callback,
   }
 }
+
+export const saveCart = (payload) => {
+  return {
+    type: types.SAVE_CART,
+    payload: payload,
+  }
+}
+
+export const loginAction = (payload, callback) => {
+  return {
+    type: types.LOGIN,
+    payload,
+    callback,
+  }
+}
+
+export const getDetailAction = (payload, callback) => {
+  return {
+    type: types.GET_DETAIL_PRODUCT,
+    payload,
+    callback,
+  }
+}
+
+export const orderAction = (payload, callback) => {
+  return {
+    type: types.ORDER_PRODUCT,
+    payload,
+    callback,
+  }
+}

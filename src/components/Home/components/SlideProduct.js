@@ -1,7 +1,9 @@
 import React from 'react'
 import Slider from 'react-slick'
+import Link from 'next/link'
 
 function SlideProduct(props) {
+  const { listProduct } = props
   const settings = {
     className: 'center',
     centerMode: true,
@@ -15,54 +17,16 @@ function SlideProduct(props) {
   }
   return (
     <Slider {...settings}>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
-      <div className='p-2 slider-custom'>
-        <img src='/assets/imgs/san-pham-2.png' alt='yenvua' />
-      </div>
+      {listProduct &&
+        listProduct.map((item) => {
+          return (
+            <div className='p-2 slider-custom'>
+              <Link href={`/chi-tiet?code=${item.code}`}>
+                <img src={item.image} alt='yenvua' />
+              </Link>
+            </div>
+          )
+        })}
     </Slider>
   )
 }

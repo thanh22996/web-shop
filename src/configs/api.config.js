@@ -1,7 +1,8 @@
 const api = {
   // sbx
-  test: {
-    url: 'http://localhost:3001',
+  apiCall: {
+    url: 'http://api.yenvua.com.vn',
+    token: '',
     urlRedirect: 'https://test.vn',
   },
 }

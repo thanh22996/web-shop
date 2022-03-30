@@ -73,6 +73,7 @@
           text-align: center;
           overflow: hidden;
           outline: 2px solid #e7e7e6;
+          padding-bottom: 45px;
           &:hover {
             .icon-freeship {
               // right: 16px;
@@ -110,6 +111,7 @@
             right: -50px;
             color: #f32723;
             transition: all 500ms;
+            z-index: 100;
           }
           .title {
             font-size: 16px;
@@ -118,6 +120,17 @@
             // float: left;
             text-align: left;
             padding: 0 16px;
+          }
+          .bl-price {
+            text-align: left;
+            padding: 0 16px;
+            span {
+              font-size: 16px;
+              font-weight: 600;
+              &:nth-child(2) {
+                color: #f32723;
+              }
+            }
           }
         }
       }
@@ -135,8 +148,10 @@
         background-color: #fff;
         .slider-custom {
           text-align: center;
+          max-width: 200px;
           img {
-            width: 90%;
+            width: 100%;
+            max-width: 200px;
             border-radius: 15px;
           }
         }
@@ -145,6 +160,17 @@
     .bl-selling-product {
       .row {
         background-color: #fff;
+        .bl-price {
+          text-align: left;
+          padding: 0 16px;
+          span {
+            font-size: 16px;
+            font-weight: 600;
+            &:nth-child(2) {
+              color: #f32723;
+            }
+          }
+        }
       }
     }
   }

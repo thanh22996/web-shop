@@ -1,79 +1,172 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { useRouter } from 'next/router'
+import { getDetailAction, saveCart } from 'redux/actions'
+import { useDispatch } from 'react-redux'
+import { toast, ToastContainer } from 'react-toastify'
 
 function DetailProduct(props) {
+  const router = useRouter()
+  const dispatch = useDispatch()
+  const { query } = router
+  const [detailProduct, setDetailProduct] = useState({})
+  const [quantityPro, setQuantityPro] = useState(1)
+  const [productsCart, setProductsCart] = useState([])
+  const [stateAddCart, setStateAddCart] = useState(0)
+  const toastId = React.useRef(null)
+
+  const getDetailProduct = () => {
+    console.log('get detail: ', query)
+    dispatch(
+      getDetailAction(query, (status, data) => {
+        if (status) {
+          setDetailProduct(data.product)
+        }
+      })
+    )
+  }
+
+  const addToCart = (product) => {
+    const item = {
+      ...product,
+      quantity: quantityPro,
+    }
+    setProductsCart([...productsCart, item])
+    setStateAddCart(stateAddCart + 1)
+
+    if (!toast.isActive(toastId.current)) {
+      toastId.current = toast.success('Thêm vào giỏ hàng thành công.', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      })
+    }
+  }
+
+  const changeQuantity = (e) => {
+    if (e === 1) {
+      if (quantityPro > 1) {
+        setQuantityPro(quantityPro - 1)
+      }
+    } else {
+      setQuantityPro(quantityPro + 1)
+    }
+  }
+
+  useEffect(() => {
+    dispatch(saveCart(productsCart))
+
+    localStorage.setItem('products', JSON.stringify(productsCart))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stateAddCart])
+
+  useEffect(() => {
+    if (localStorage.getItem('products')) {
+      setProductsCart(JSON.parse(localStorage.getItem('products')))
+    }
+  }, [])
+
+  useEffect(() => {
+    getDetailProduct()
+  }, [router])
+
   return (
     <div className='detail-page mt-4'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-md-5'>
-            <div className='row mb-4'>
-              <div className='col-sm-12'>
-                <div className='bl-main-img'>
-                  <img
-                    width={'100%'}
-                    src='/assets/imgs/yeuvua-main.png'
-                    alt='yenvua'
-                  />
+      {detailProduct && (
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-5'>
+              <div className='row'>
+                <div className='col-sm-12'>
+                  <div className='bl-main-img'>
+                    <img
+                      width={'100%'}
+                      src={
+                        detailProduct.image
+                          ? detailProduct.image
+                          : '/assets/imgs/san-pham-2.png'
+                      }
+                      alt='yenvua'
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='col-md-7'>
+              <div className='bl-infor-product'>
+                <div className='top-info'>
+                  <p className='title'>
+                    {detailProduct.name && detailProduct.name}
+                  </p>
+                  <div className='category-code d-flex'>
+                    <p>
+                      <span className='title__name'>Danh mục sản phẩm: </span>
+                      <span>Yến vua</span>
+                    </p>
+                    <p>
+                      <span className='title__name'>Mã sản phẩm: </span>
+                      <span style={{ color: '#f32723', fontWeight: '600' }}>
+                        {query.code}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <p className='bl-price'>
+                  <span className='title__name mr-2'>Giá:</span>
+                  <span>
+                    {detailProduct.price &&
+                      new Intl.NumberFormat('de-DE').format(
+                        detailProduct.price
+                      )}{' '}
+                    đ
+                  </span>
+                </p>
+                <p className='bl-status'>
+                  <span className='title__name'>Tình trạng: </span>
+                  <span>
+                    {detailProduct.isActive ? 'Còn hàng' : 'Hết hàng'}
+                  </span>
+                </p>
+                <div className='bl-booking d-flex'>
+                  <div className='d-flex bl-quantity mr-4'>
+                    <button onClick={() => changeQuantity(1)}>-</button>
+                    <span className='px-3'>{quantityPro}</span>
+                    <button onClick={() => changeQuantity(2)}>+</button>
+                  </div>
+                  <button
+                    className='btn-book'
+                    onClick={() => addToCart(detailProduct)}
+                  >
+                    Chọn mua
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div className='col-md-7'>
-            <div className='top-info'>
-              <p className='title'>Yến chưng đậu biếc</p>
-              <p>
-                <b>Danh mục sản phẩm: </b>Yến vua
-              </p>
-              <p>
-                <b>Mã sản phẩm: </b>Còn hàng
-              </p>
-            </div>
-            <p className='bl-price'>70,000 đ</p>
-            <p className='bl-status'>Còn hàng</p>
-            <div className='bl-booking d-flex'>
-              <div className='d-flex mr-4'>
-                <button>-</button>
-                <span className='px-3'>1</span>
-                <button>+</button>
-              </div>
-              <button className='btn-book'>Đặt hàng</button>
-            </div>
+          <div className='mt-5 bl-more-info'>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `${detailProduct.description}`,
+              }}
+            />
           </div>
         </div>
-        <div className='mt-5'>
-          <div>THÔNG TIN THÊM</div>
-          <p>
-            <i>Đối tượng sử dụng: </i>
-          </p>
-          <p>
-            trẻ em trên 1 tuổi, người già, người khỏe mạnh, bà bầu trên 4 tháng,
-            người lao động nặng hay lao động văn phòng. Đặc biệt người mới ốm
-            dậy, thể trạng cơ thể ốm yếu.
-          </p>
-          <p>
-            <i>Hướng dẫn sử dụng:</i>
-          </p>
-          <p>
-            Buổi sáng sau khi thức dậy hoặc buổi tối trước khi đi ngủ là 2 thời
-            điểm lý tưởng dùng yến. Vì đây là thời điểm cơ thể hấp thu được chất
-            dinh dưỡng tốt nhất.
-          </p>
-          <p>- Buổi sáng trước khi ăn sáng 20 phút.</p>
-          <p>- Buổi tối trước khi đi ngủ (lúc bụng đói).</p>
-          <p>
-            <i>Liều lượng sử dụng:</i>
-          </p>
-          <p>- Trẻ em trên 1 tuổi: 2 ngày 1 hũ</p>
-          <p>- Trẻ em từ 3 tuổi trở lên: 1 ngày 1 hũ</p>
-          <p>- Người già/người khoẻ mạnh: Mỗi mỗi ngày 1 hũ.</p>
-          <p>- Bà bầu trên 4 tháng: Mỗi ngày 1 hũ.</p>
-          <p>
-            - Người cao huyết áp: 2 ngày dùng 1 hũ. Không dùng cho trẻ dưới 1
-            tuổi và bà bầu dưới 4 tháng.
-          </p>
-        </div>
-      </div>
+      )}
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+      />
     </div>
   )
 }

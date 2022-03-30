@@ -6,12 +6,13 @@ import dynamic from 'next/dynamic'
 const UploadProduct = dynamic(() => import('components/admin/UploadProduct'), {
   ssr: false,
 })
+import Main from 'layouts/main/MainLayoutAdmin'
 
 function index(props) {
   return (
-    <div>
+    <Main>
       <UploadProduct />
-    </div>
+    </Main>
   )
 }
 

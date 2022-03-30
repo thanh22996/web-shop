@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ProductList from 'components/admin/ListProduct'
+import Main from 'layouts/main/MainLayoutAdmin'
 
 function index(props) {
   return (
-    <div>
+    <Main>
       <ProductList />
-    </div>
+    </Main>
   )
 }
 

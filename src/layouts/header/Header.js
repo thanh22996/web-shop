@@ -1,11 +1,29 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { saveCart } from 'redux/actions'
 
 function Header() {
+  const productsCart = useSelector((state) => state.listCart.listCart)
+  const router = useRouter()
+  const dispatch = useDispatch()
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('submit')
   }
+
+  console.log('productsCart: ', productsCart)
+
+  const redirectCart = () => {
+    router.push('/gio-hang')
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem('products')) {
+      dispatch(saveCart(JSON.parse(localStorage.getItem('products'))))
+    }
+  }, [])
 
   return (
     <Fragment>
@@ -32,8 +50,8 @@ function Header() {
               <div>Tất cả</div>
             </div>
           </div>
-          <div className='header__cart'>
-            <span className='cart__noti-number'>0</span>
+          <div className='header__cart' onClick={redirectCart}>
+            <span className='cart__noti-number'>{productsCart.length}</span>
             <i className='fas fa-shopping-cart'></i>
             <p>Giỏ hàng</p>
           </div>

@@ -1,25 +1,33 @@
 import Request from './middleware/request'
 import { configAPI } from '../configs/api.config'
-
 const apiTTDB = {
-  getListBank({ ...arg }) {
-    return apiTTDB.callAPI('POST', '/v1/Payment/Bank/BankCode', { ...arg })
+  login({ ...arg }) {
+    console.log('arg: ', arg)
+    return apiTTDB.callAPI('POST', '/api/v1/login', { ...arg })
   },
+
   getListProduct({ ...arg }) {
+    console.log('arg: ', arg)
     return apiTTDB.callAPI('GET', '/api/v1/product', { ...arg })
   },
+
   getListCategory({ ...arg }) {
     return apiTTDB.callAPI('GET', '/api/v1/category', { ...arg })
   },
-  callAPI(method, pathUrl, body, headers = {}) {
+
+  getDetail({ ...arg }) {
+    console.log(arg)
+    return apiTTDB.callAPI('GET', `/api/v1/product/detail?code=${arg.code}`)
+  },
+
+  orderProduct({ ...arg }) {
+    console.log(arg)
+    return apiTTDB.callAPI('POST', `/api/v1/order`, { ...arg })
+  },
+
+  callAPI(method, pathUrl, body) {
     console.log('pathUrl: ', pathUrl)
-    return Request.callAPI(
-      method,
-      configAPI.test.url,
-      pathUrl,
-      body,
-      (headers = { Authorization: configAPI.test.token })
-    )
+    return Request.callAPI(method, configAPI.apiCall.url, pathUrl, body)
   },
 }
 export default apiTTDB

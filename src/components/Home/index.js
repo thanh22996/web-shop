@@ -9,6 +9,7 @@ function Test() {
   const dispatch = useDispatch()
   const router = useRouter()
   const [listPd, setListPd] = useState([])
+  const [listCategories, setListCategories] = useState([])
   const handleBooking = (e) => {
     e.preventDefault()
     router.push('chi-tiet')
@@ -16,17 +17,12 @@ function Test() {
 
   const getProduct = () => {
     dispatch(
-      getListProduct(
-        {
-          categoryId: '62303e3dafa3e8a9685c1b9c',
-        },
-        (status, data) => {
-          console.log('data saasda: ', data)
-          if (status) {
-            setListPd(data.products)
-          }
+      getListProduct({}, (status, data) => {
+        console.log('data saasda: ', data)
+        if (status) {
+          setListPd(data.products)
         }
-      )
+      })
     )
   }
 
@@ -35,7 +31,8 @@ function Test() {
       getListCategory({}, (status, data) => {
         console.log('data saasda category: ', data)
         if (status) {
-          // setListPd(data.products)
+          set
+          setListCategories(data.categories)
         }
       })
     )
@@ -105,7 +102,7 @@ function Test() {
               <span>Xem thêm {'>'}</span>
             </div>
             <div className='row'>
-              <ProductList />
+              <ProductList listProduct={listPd} />
             </div>
           </div>
         </div>
@@ -114,7 +111,7 @@ function Test() {
             <div className='row title'>Sản phẩm nỗi bật</div>
             <div className='row'>
               <div className='col-md-8'>
-                <SlideProduct />
+                <SlideProduct listProduct={listPd} />
               </div>
               <div className='col-md-4 text-center'>
                 <img
@@ -133,7 +130,7 @@ function Test() {
               <span>Xem thêm {'>'}</span>
             </div>
             <div className='row'>
-              <ProductList />
+              <ProductList listProduct={listPd} />
             </div>
           </div>
         </div>

@@ -6,3 +6,11 @@ export const GET_LIST_BANK = 'GET_LIST_BANK'
 export const GET_LIST_PRODUCT = 'GET_LIST_PRODUCT'
 
 export const GET_LIST_CATEGORY = 'GET_LIST_CATEGORY'
+
+export const SAVE_CART = 'SAVE_CART'
+
+export const LOGIN = 'LOGIN'
+
+export const GET_DETAIL_PRODUCT = 'GET_DETAIL_PRODUCT'
+
+export const ORDER_PRODUCT = 'ORDER_PRODUCT'
