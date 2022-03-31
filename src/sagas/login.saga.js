@@ -4,10 +4,8 @@ import * as types from '../redux/types'
 import apiTTDB from '../api/apiTTDB'
 
 function* doAction(action) {
-  console.log('action: ', action)
   try {
     yield put({ type: types.SHOW_LOADING })
-    console.log('aaaaaaaaaaa: ', action.payload)
     const { data } = yield call(apiTTDB.login, action.payload)
     yield put({ type: types.HIDE_LOADING })
     switch (data.status) {

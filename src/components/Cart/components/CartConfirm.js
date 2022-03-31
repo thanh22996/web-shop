@@ -33,14 +33,11 @@ function CartConfirm(props) {
   }
 
   const onSubmit = async () => {
-    console.log('submit: ', formData)
     try {
       let err = {}
       err = validate(formData)
-      console.log(err)
       setErrForm(err)
       if (!err) {
-        console.log('vao day ne')
         const cartList = JSON.parse(localStorage.getItem('products'))
         const data = {
           customerInfo: formData,
@@ -51,10 +48,8 @@ function CartConfirm(props) {
             }
           }),
         }
-        console.log(data)
         dispatch(
           orderAction(data, (status, data) => {
-            console.log(status)
             if (status) {
               if (!toast.isActive(toastId.current)) {
                 toastId.current = toast.success('Đặt hàng thành công', {

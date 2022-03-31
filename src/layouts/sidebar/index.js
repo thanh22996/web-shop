@@ -36,8 +36,6 @@ const Sidebar = () => {
 
   const curPath = router.pathname
 
-  console.log('router: ', router)
-
   useEffect(() => {
     setTimeout(() => {
       const sidebarItem = sidebarRef.current.querySelector(

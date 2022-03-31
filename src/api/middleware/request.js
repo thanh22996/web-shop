@@ -22,7 +22,6 @@ const Request = {
           lang = `${args.lang}`
           delete args.lang
         }
-        console.log('iiiiiiiiiiiii: ', args)
         let apiUrl = `${url}${pathUrl}`
         let apiHeader = {
           // Authorization: accessToken,

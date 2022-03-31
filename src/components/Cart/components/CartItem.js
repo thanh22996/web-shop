@@ -2,7 +2,6 @@ import React from 'react'
 
 function CartItem(props) {
   const { listCart } = props
-  console.log('list cart: ', listCart)
   return (
     <div className='bl-list-cart'>
       <div className='bl-total-item'>
@@ -11,7 +10,6 @@ function CartItem(props) {
       </div>
       {listCart &&
         listCart.map((item) => {
-          console.log(item)
           return (
             <div className='row bl-list-cart__item mb-3' key={item.id}>
               <div className='col-md-8 d-flex'>

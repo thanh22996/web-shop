@@ -4,12 +4,14 @@ import { getListProduct, getListCategory } from 'redux/actions'
 import { useDispatch } from 'react-redux'
 import ProductList from './components/ProductList'
 import SlideProduct from './components/SlideProduct'
+import PaginationCustom from 'components/admin/components/Pagination'
 
 function Test() {
   const dispatch = useDispatch()
   const router = useRouter()
   const [listPd, setListPd] = useState([])
   const [listCategories, setListCategories] = useState([])
+  const [listProductByCategory, setListProductByCategory] = useState({})
   const handleBooking = (e) => {
     e.preventDefault()
     router.push('chi-tiet')
@@ -18,7 +20,6 @@ function Test() {
   const getProduct = () => {
     dispatch(
       getListProduct({}, (status, data) => {
-        console.log('data saasda: ', data)
         if (status) {
           setListPd(data.products)
         }
@@ -29,9 +30,7 @@ function Test() {
   const getCattegoryList = () => {
     dispatch(
       getListCategory({}, (status, data) => {
-        console.log('data saasda category: ', data)
         if (status) {
-          set
           setListCategories(data.categories)
         }
       })
@@ -43,7 +42,6 @@ function Test() {
     getCattegoryList()
   }, [])
 
-  console.log('listPd: ', listPd)
   // const
 
   return (
@@ -105,6 +103,7 @@ function Test() {
               <ProductList listProduct={listPd} />
             </div>
           </div>
+          {/* <PaginationCustom /> */}
         </div>
         <div className='bl-today'>
           <div className='container'>
@@ -133,6 +132,7 @@ function Test() {
               <ProductList listProduct={listPd} />
             </div>
           </div>
+          {/* <PaginationCustom /> */}
         </div>
       </div>
     </div>

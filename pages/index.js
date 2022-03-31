@@ -13,7 +13,7 @@ export default function home() {
 }
 
 export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
-  console.log('aaaaaaabbbbbbbbbbccccccc')
+  // console.log('aaaaaaabbbbbbbbbbccccccc')
   // store.dispatch(
   //   getListBank({}, (status, data) => {
   //     console.log("status: ", data);
@@ -28,6 +28,5 @@ export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
   //   })
   // );
   // store.dispatch(END);
-
   // await store.sagaTask.toPromise();
 })

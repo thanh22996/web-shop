@@ -20,7 +20,7 @@ function SlideProduct(props) {
       {listProduct &&
         listProduct.map((item) => {
           return (
-            <div className='p-2 slider-custom'>
+            <div className='p-2 slider-custom' key={item.code}>
               <Link href={`/chi-tiet?code=${item.code}`}>
                 <img src={item.image} alt='yenvua' />
               </Link>

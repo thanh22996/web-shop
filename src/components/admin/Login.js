@@ -11,7 +11,6 @@ function Login(props) {
     password: '',
   })
   const onChangeLogin = (e) => {
-    console.log(e.target.value)
     setFormLogin({
       ...formLogin,
       [e.target.name]: e.target.value,
@@ -20,11 +19,9 @@ function Login(props) {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log('okie: ', formLogin)
 
     dispatch(
       loginAction(formLogin, (status, data) => {
-        console.log('status: ', status)
         if (status) {
           router.push('/admin/product-list')
         }

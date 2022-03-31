@@ -16,7 +16,6 @@ function DetailProduct(props) {
   const toastId = React.useRef(null)
 
   const getDetailProduct = () => {
-    console.log('get detail: ', query)
     dispatch(
       getDetailAction(query, (status, data) => {
         if (status) {

@@ -4,7 +4,6 @@ import Link from 'next/link'
 function HeaderAdmin() {
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('submit')
   }
 
   return (

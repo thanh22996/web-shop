@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 function CartTotal(props) {
+  const router = useRouter()
   const { confirmCart, setConfirmCart } = props
   const productsCart = useSelector((state) => state.listCart.listCart)
   const [totalPrice, setTotalPrice] = useState(0)
@@ -49,9 +51,9 @@ function CartTotal(props) {
       {!confirmCart && <button onClick={onConfirm}>TIẾN HÀNH ĐẶT HÀNG</button>}
       <button
         className='back'
-        // onClick={() => {
-        //   history.goBack()
-        // }}
+        onClick={() => {
+          router.back()
+        }}
       >
         QUAY LẠI
       </button>

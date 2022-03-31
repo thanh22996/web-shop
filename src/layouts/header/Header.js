@@ -10,10 +10,7 @@ function Header() {
   const dispatch = useDispatch()
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('submit')
   }
-
-  console.log('productsCart: ', productsCart)
 
   const redirectCart = () => {
     router.push('/gio-hang')
