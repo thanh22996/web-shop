@@ -1,0 +1,15 @@
+{
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 9651,
+    "files": [
+      "static/chunks/651.243d23442247d286.js"
+    ]
+  },
+  "admin\\add-product\\index.js -> components/admin/UploadProduct": {
+    "id": 1598,
+    "files": [
+      "static/chunks/effa34c9.45788a45e330f4a3.js",
+      "static/chunks/598.cc4ffa139d58a539.js"
+    ]
+  }
+}
