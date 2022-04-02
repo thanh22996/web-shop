@@ -23,6 +23,8 @@ function Login(props) {
     dispatch(
       loginAction(formLogin, (status, data) => {
         if (status) {
+          console.log(data)
+          localStorage.setItem('token', data?.accessToken || '')
           router.push('/admin/product-list')
         }
       })

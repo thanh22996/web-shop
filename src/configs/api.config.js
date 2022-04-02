@@ -1,7 +1,7 @@
 const api = {
   // sbx
   apiCall: {
-    url: 'http://api.yenvua.com.vn',
+    url: 'https://api.yenvua.com.vn',
     token: '',
     urlRedirect: 'https://test.vn',
   },

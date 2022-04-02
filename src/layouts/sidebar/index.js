@@ -6,21 +6,21 @@ import { useRouter } from 'next/router'
 const sidebarNavItems = [
   {
     display: 'Sản phẩm',
-    icon: <i class='fas fa-crow'></i>,
+    icon: <i className='fas fa-crow'></i>,
     to: '/admin/product-list',
     section: '',
     active: 1,
   },
   {
     display: 'Đơn hàng',
-    icon: <i class='fas fa-list'></i>,
+    icon: <i className='fas fa-list'></i>,
     to: '/admin/order',
     section: 'order',
     active: 2,
   },
   {
     display: 'Thêm sản phẩm',
-    icon: <i class='fas fa-plus-circle'></i>,
+    icon: <i className='fas fa-plus-circle'></i>,
     to: '/admin/add-product',
     section: 'add',
     active: 3,

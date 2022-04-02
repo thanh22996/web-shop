@@ -13,6 +13,7 @@ const Request = {
   ) {
     return new Promise(async (resolve, reject) => {
       try {
+        console.log('args token: ', args)
         let accessToken = ''
         if (args && args.accessToken) {
           accessToken = `${args.accessToken}`
@@ -23,8 +24,9 @@ const Request = {
           delete args.lang
         }
         let apiUrl = `${url}${pathUrl}`
+        console.log('accessToken req: ', accessToken)
         let apiHeader = {
-          // Authorization: accessToken,
+          Authorization: `Bearer ${accessToken}`,
           ...headers,
           'Content-Type': 'application/json; charset=utf-8',
         }

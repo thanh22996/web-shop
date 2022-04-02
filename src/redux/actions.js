@@ -54,3 +54,19 @@ export const orderAction = (payload, callback) => {
     callback,
   }
 }
+
+export const getListProductAdminAction = (payload, callback) => {
+  return {
+    type: types.GET_LIST_PRODUCT_ADMIN,
+    payload,
+    callback,
+  }
+}
+
+export const getListOrderAdminAction = (payload, callback) => {
+  return {
+    type: types.GET_ORDER_PRODUCT_ADMIN,
+    payload,
+    callback,
+  }
+}

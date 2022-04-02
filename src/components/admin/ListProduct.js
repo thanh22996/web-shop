@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import PaginationCustom from './components/Pagination'
+import { useDispatch } from 'react-redux'
+import { getListProductAdminAction } from 'redux/actions'
 
 ListProduct.propTypes = {}
 
 function ListProduct(props) {
+  const dispatch = useDispatch()
+  const [ListProduct, setListProduct] = useState([])
+
+  useEffect(() => {
+    dispatch(
+      getListProductAdminAction({}, (status, data) => {
+        console.log('data product admin: ', data)
+        setListProduct(data.products)
+      })
+    )
+  }, [])
+
   return (
     <div className='content-page'>
       {/* Start content */}
@@ -13,7 +27,7 @@ function ListProduct(props) {
           <div className='page-title-box'>
             <div className='row align-items-center'>
               <div className='col-sm-6'>
-                <h4 className='page-title'>Products List</h4>
+                <h4 className='page-title'>Danh sách sản phẩm</h4>
                 <ol className='breadcrumb'>
                   <li className='breadcrumb-item'>
                     <a href='javascript:void(0);'>
@@ -21,9 +35,9 @@ function ListProduct(props) {
                     </a>
                   </li>
                   <li className='breadcrumb-item'>
-                    <a href='javascript:void(0);'>Ecommerce</a>
+                    <a href='javascript:void(0);'>Admin</a>
                   </li>
-                  <li className='breadcrumb-item active'>Products List</li>
+                  <li className='breadcrumb-item active'>Danh sách sản phẩm</li>
                 </ol>
               </div>
               <div className='col-sm-6'>
@@ -76,68 +90,72 @@ function ListProduct(props) {
                     >
                       <thead>
                         <tr>
-                          <th>Image</th>
-                          <th>Product Name</th>
-                          <th>Added Date</th>
-                          <th>Amount</th>
-                          <th>No. of Units</th>
-                          <th>Stock</th>
-                          <th>Action</th>
+                          <th>Hình ảnh</th>
+                          <th>Tên sản phẩm</th>
+                          <th>Ngày sửa đổi</th>
+                          <th>Giá</th>
+                          <th>Tồn kho</th>
+                          <th>Sửa/xóa</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td className='product-list-img'>
-                            <img
-                              src='assets/images/products/1.jpg'
-                              className='img-fluid thumb-md rounded'
-                              alt='tbl'
-                            />
-                          </td>
-                          <td>
-                            <h6 className='mt-0 mb-1'>Gray belt watch</h6>
-                            <p className='m-0 font-14'>
-                              Sed ut perspiciatis unde omnis iste.
-                            </p>
-                          </td>
-                          <td>22/05/2017</td>
-                          <td>$521</td>
-                          <td>5841</td>
-                          <td>
-                            <div className='progress' style={{ height: '5px' }}>
-                              <div
-                                className='progress-bar bg-danger'
-                                role='progressbar'
-                                style={{ width: '25%' }}
-                                aria-valuenow={25}
-                                aria-valuemin={0}
-                                aria-valuemax={100}
-                              />
-                            </div>
-                          </td>
-                          <td>
-                            <a
-                              href='javascript:void(0);'
-                              className='mr-3 text-primary'
-                              data-toggle='tooltip'
-                              data-placement='top'
-                              title
-                              data-original-title='Edit'
-                            >
-                              <i className='mdi mdi-pencil font-18' />
-                            </a>
-                            <a
-                              href='javascript:void(0);'
-                              className='text-danger'
-                              data-toggle='tooltip'
-                              data-placement='top'
-                              title
-                              data-original-title='Delete'
-                            >
-                              <i className='mdi mdi-close font-18' />
-                            </a>
-                          </td>
-                        </tr>
+                        {ListProduct &&
+                          ListProduct.map((item) => {
+                            return (
+                              <tr>
+                                <td className='product-list-img'>
+                                  <img
+                                    width={'50px'}
+                                    src={item.image}
+                                    className='img-fluid thumb-md rounded'
+                                    alt='tbl'
+                                  />
+                                </td>
+                                <td>
+                                  <p className='m-0 font-14'>{item.name}</p>
+                                </td>
+                                <td>{item.createdAt}</td>
+                                <td>{item.price}</td>
+                                <td>
+                                  <div
+                                    className='progress'
+                                    style={{ height: '5px' }}
+                                  >
+                                    <div
+                                      className='progress-bar bg-danger'
+                                      role='progressbar'
+                                      style={{ width: '25%' }}
+                                      aria-valuenow={25}
+                                      aria-valuemin={0}
+                                      aria-valuemax={100}
+                                    />
+                                  </div>
+                                </td>
+                                <td>
+                                  <a
+                                    href='javascript:void(0);'
+                                    className='mr-3 text-primary'
+                                    data-toggle='tooltip'
+                                    data-placement='top'
+                                    title
+                                    data-original-title='Edit'
+                                  >
+                                    <i className='fas fa-edit'></i>
+                                  </a>
+                                  <a
+                                    href='javascript:void(0);'
+                                    className='text-danger'
+                                    data-toggle='tooltip'
+                                    data-placement='top'
+                                    title
+                                    data-original-title='Delete'
+                                  >
+                                    <i className='fas fa-trash-alt'></i>
+                                  </a>
+                                </td>
+                              </tr>
+                            )
+                          })}
                       </tbody>
                     </table>
                     <PaginationCustom />
